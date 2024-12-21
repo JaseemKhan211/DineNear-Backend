@@ -1,10 +1,10 @@
 {
-  "name": "dinenear-nodejs",
+  "name": "dinenear-backend",
   "version": "1.0.0",
   "description": "DineNear is a mobile app project with an API created using Node.js and a mobile app built with Flutter.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "node",
