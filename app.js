@@ -23,6 +23,19 @@ app.get('/favicon.png', (req, res) =>
     res.status(204).send()
 );
 
+app.get('/', (req, res) => 
+    res.status(204).send()
+);
+
+// CHECK: Log Middleware
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.originalUrl}`);
+    next();
+});
+
+// 2) ROUTES
+app.use('/api/v1/map', mapRourer);
+
 // Fallback Route: Catch all undefined routes
 app.all('*', (req, res) => {
     res.status(404).json({
@@ -30,9 +43,6 @@ app.all('*', (req, res) => {
         message: `Cannot find ${req.originalUrl} on this server!`
     });
 });
-
-// 2) ROUTES
-app.use('/api/v1/map', mapRourer);
 
 module.exports = app;
 
