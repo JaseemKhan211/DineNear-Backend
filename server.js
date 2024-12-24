@@ -10,11 +10,11 @@ const DB = process.env.DATABASE.replace(
     process.env.DATABASE_PASSWORD
 );
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true
-  })
-  .then(() => console.log('DB connection successful!'));
+mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('DB connection successful!'))
+  .catch((err) => console.error('DB connection error: ', err));
+
+
 
 // Create Server
 const server = http.createServer(app);
