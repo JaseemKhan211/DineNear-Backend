@@ -18,8 +18,9 @@ mongoose.connect(DB, {
 .then(() => console.log('DB connection successful!'))
 .catch((err) => console.error('DB connection error:', err));
 
-
-
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to the API');
+});
 
 // Create Server
 const server = http.createServer(app);
