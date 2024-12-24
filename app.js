@@ -23,6 +23,14 @@ app.get('/favicon.png', (req, res) =>
     res.status(204).send()
 );
 
+// Fallback Route: Catch all undefined routes
+app.all('*', (req, res) => {
+    res.status(404).json({
+        status: 'fail',
+        message: `Cannot find ${req.originalUrl} on this server!`
+    });
+});
+
 // 2) ROUTES
 app.use('/api/v1/map', mapRourer);
 
