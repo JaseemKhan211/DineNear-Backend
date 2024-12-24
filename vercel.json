@@ -8,11 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/api/v1/map/(.*)",
+      "src": "/api/v1/map/inMap",
       "dest": "/server.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/api/v1/map(.*)",
       "dest": "/server.js"
     }
   ]
