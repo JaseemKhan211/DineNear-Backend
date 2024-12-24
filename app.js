@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
@@ -15,8 +14,14 @@ app.use(cors());
 // To parse JSON bodies
 app.use(express.json());
 
-// Serving static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Ignore Favicon Requests
+app.get('/favicon.ico', (req, res) => 
+    res.status(204).send()
+);
+
+app.get('/favicon.png', (req, res) => 
+    res.status(204).send()
+);
 
 // 2) ROUTES
 app.use('/api/v1/map', mapRourer);
