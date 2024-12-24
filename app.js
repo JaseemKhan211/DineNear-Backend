@@ -37,12 +37,12 @@ app.use((req, res, next) => {
 app.use('/api/v1/map', mapRourer);
 
 // Fallback Route: Catch all undefined routes
-app.all('*', (req, res) => {
-    res.status(404).json({
-        status: 'fail',
-        message: `Cannot find ${req.originalUrl} on this server!`
-    });
-});
+// app.all('*', (req, res) => {
+//     res.status(404).json({
+//         status: 'fail',
+//         message: `Cannot find ${req.originalUrl} on this server!`
+//     });
+// });
 
 module.exports = app;
 
