@@ -28,10 +28,10 @@ app.get('/', (req, res) =>
 );
 
 // CHECK: Log Middleware
-app.use((req, res, next) => {
-    console.log(`Incoming request: ${req.method} ${req.originalUrl}`);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log(`Incoming request: ${req.method} ${req.originalUrl}`);
+//     next();
+// });
 
 // 2) ROUTES
 app.use('/api/v1/map', mapRourer);
