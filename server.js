@@ -10,9 +10,14 @@ const DB = process.env.DATABASE.replace(
     process.env.DATABASE_PASSWORD
 );
 
-mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('DB connection successful!'))
-  .catch((err) => console.error('DB connection error: ', err));
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,  // Set a higher timeout value
+})
+.then(() => console.log('DB connection successful!'))
+.catch((err) => console.error('DB connection error:', err));
+
 
 
 
