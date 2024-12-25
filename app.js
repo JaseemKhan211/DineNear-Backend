@@ -30,6 +30,8 @@ app.get('/', (req, res) => {
 
 app.use((req, res, next) => {
     console.log(`Incoming Request: ${req.method} ${req.url}`);
+    console.log(`Headers: ${JSON.stringify(req.headers)}`);
+    console.log(`Body: ${JSON.stringify(req.body)}`);
     next();
 });
 
@@ -38,10 +40,11 @@ app.use('/api/v1/map', mapRourer);
 
 // Fallback Route: Catch all undefined routes
 app.all('*', (req, res) => {
-    console.log(`Unhandled route accessed: ${req.method} ${req.originalUrl}`);
+    const sanitizedUrl = req.originalUrl.trim(); // Remove unwanted spaces or newlines
+    console.log(`Unhandled route accessed: ${req.method} ${sanitizedUrl}`);
     res.status(404).json({
         status: 'fail',
-        message: `Cannot find ${req.originalUrl.trim()} on this server!`
+        message: `Cannot find ${sanitizedUrl} on this server!`
     });
 });
 
