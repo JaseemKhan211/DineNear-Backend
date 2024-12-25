@@ -24,6 +24,7 @@ app.get('/favicon.png', (req, res) =>
 );
 
 app.get('/', (req, res) => {
+    console.log('Root route accessed');
     res.status(200).send('Welcome to the API');
 });
 
@@ -32,11 +33,13 @@ app.use('/api/v1/map', mapRourer);
 
 // Fallback Route: Catch all undefined routes
 app.all('*', (req, res) => {
+    console.log(`Unhandled route: ${req.originalUrl}`);
     res.status(404).json({
         status: 'fail',
         message: `Cannot find ${req.originalUrl} on this server!`
     });
 });
+
 
 module.exports = app;
 
