@@ -28,18 +28,22 @@ app.get('/', (req, res) => {
     res.status(200).send('Welcome to the API');
 });
 
+app.use((req, res, next) => {
+    console.log(`Incoming Request: ${req.method} ${req.url}`);
+    next();
+});
+
 // 2) ROUTES
 app.use('/api/v1/map', mapRourer);
 
 // Fallback Route: Catch all undefined routes
 app.all('*', (req, res) => {
-    console.log(`Unhandled route: ${req.originalUrl}`);
+    console.log(`Unhandled route accessed: ${req.method} ${req.originalUrl}`);
     res.status(404).json({
         status: 'fail',
-        message: `Cannot find ${req.originalUrl} on this server!`
+        message: `Cannot find ${req.originalUrl.trim()} on this server!`
     });
 });
-
 
 module.exports = app;
 
