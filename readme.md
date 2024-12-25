@@ -5,6 +5,11 @@ DineNear is a mobile application project powered by a robust backend built with 
 
 ### Built With
 
-- [![Node][Node.js]][Node-url]  
-- [![Express][Express]][Express-url]  
-- [![MongoDB][MongoDB]][MongoDB-url]  
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
