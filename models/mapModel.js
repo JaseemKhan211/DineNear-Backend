@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
 
 const mapSchema = new mongoose.Schema({
-    radius: {
+    current_latitude: {
         type: Number,
-        required: [true, 'A user must have a radius'],
+        required: [true, 'A user must have a current latitude'],
     },
-    place: {
-        type: String,
-        required: [true, 'A user must have a place'],
-    },
-    latitude: {
+    current_longitude: {
         type: Number,
-        required: [true, 'A user must have a latitude'],
+        required: [true, 'A user must have a current longitude'],
     },
-    longitude: {
+    target_latitude: {
         type: Number,
-        required: [true, 'A user must have a longitude'],
+        required: [true, 'A user must have a target latitude'],
+    },
+    target_longitude: {
+        type: Number,
+        required: [true, 'A user must have a target longitude']
     },
     createdAt: {
         type: Date,
